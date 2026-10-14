@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>앤딩스터디카페 창업 FAQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FBF9F6; --surface:#ffffff; --ink:#15181D; --ink-2:#4A5158; --ink-3:#8A9198;
+  --line:#E6E1DA; --accent:#C2703A; --accent-soft:#FBF0E7; --ok:#2F6B4F; --ok-soft:#EAF3EE;
+  --warn:#8A6A12; --warn-soft:#FDF5DD;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101215; --surface:#171A1F; --ink:#F0EEEA; --ink-2:#AFB5BC; --ink-3:#767D85;
+    --line:#282C33; --accent:#E5945C; --accent-soft:#2A1F16; --ok:#7FC3A1; --ok-soft:#18241E;
+    --warn:#E0C165; --warn-soft:#262009;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101215; --surface:#171A1F; --ink:#F0EEEA; --ink-2:#AFB5BC; --ink-3:#767D85;
+  --line:#282C33; --accent:#E5945C; --accent-soft:#2A1F16; --ok:#7FC3A1; --ok-soft:#18241E;
+  --warn:#E0C165; --warn-soft:#262009;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-weight:400; line-height:1.75; letter-spacing:-.01em;
+}
+img{max-width:100%}
+.wrap{max-width:860px; margin:0 auto; padding:0 20px}
+
+/* ── 히어로 ───────── */
+header.hero{padding:64px 0 44px; border-bottom:1px solid var(--line)}
+.eyebrow{display:inline-block; font-size:12px; font-weight:700; letter-spacing:.14em;
+  color:var(--accent); background:var(--accent-soft); padding:6px 12px; border-radius:99px; margin-bottom:22px}
+h1{font-size:clamp(28px,5.4vw,46px); line-height:1.3; font-weight:900; margin:0 0 18px; letter-spacing:-.03em}
+h1 em{font-style:normal; color:var(--accent)}
+.lead{font-size:clamp(15px,2.2vw,17px); color:var(--ink-2); margin:0 0 28px; max-width:58ch}
+.meta{font-size:13px; color:var(--ink-3)}
+
+/* ── 지표 ───────── */
+.stats{display:flex; flex-wrap:wrap; gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:14px; overflow:hidden; margin:36px 0 0}
+.stat{background:var(--surface); padding:20px 18px; flex:1 1 240px; min-width:0}
+@media (max-width:520px){ .stat{flex:1 1 100%} }
+.stat .n{font-size:22px; font-weight:900; letter-spacing:-.02em; display:block; margin-bottom:4px}
+.stat .l{font-size:12.5px; color:var(--ink-3); line-height:1.5}
+
+/* ── 섹션 내비 ───────── */
+nav.chips{position:sticky; top:0; z-index:20; background:var(--bg); border-bottom:1px solid var(--line); padding:12px 0}
+.chiprow{display:flex; gap:8px; overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:2px}
+.chiprow::-webkit-scrollbar{height:0}
+.chip{flex:0 0 auto; font-size:13px; font-weight:500; text-decoration:none; color:var(--ink-2);
+  border:1px solid var(--line); background:var(--surface); padding:7px 14px; border-radius:99px; white-space:nowrap}
+.chip:hover{border-color:var(--accent); color:var(--accent)}
+
+/* ── 섹션 ───────── */
+section{padding:52px 0 8px; scroll-margin-top:64px}
+.sechead{display:flex; align-items:baseline; gap:12px; margin-bottom:6px}
+.secnum{font-size:13px; font-weight:900; color:var(--accent); letter-spacing:.08em}
+h2{font-size:clamp(21px,3.4vw,27px); font-weight:900; margin:0; letter-spacing:-.025em}
+.secsub{color:var(--ink-3); font-size:14px; margin:0 0 22px}
+
+/* ── FAQ ───────── */
+details{background:var(--surface); border:1px solid var(--line); border-radius:12px; margin-bottom:10px; overflow:hidden}
+details[open]{border-color:var(--accent)}
+summary{list-style:none; cursor:pointer; padding:18px 52px 18px 20px; position:relative;
+  font-size:clamp(15px,2.3vw,17px); font-weight:700; letter-spacing:-.02em; line-height:1.55}
+summary::-webkit-details-marker{display:none}
+summary::after{content:""; position:absolute; right:22px; top:26px; width:9px; height:9px;
+  border-right:2px solid var(--ink-3); border-bottom:2px solid var(--ink-3);
+  transform:rotate(45deg); transition:transform .18s}
+details[open] summary::after{transform:rotate(-135deg); border-color:var(--accent)}
+.answer{padding:0 20px 20px; color:var(--ink-2); font-size:15px}
+.answer p{margin:0 0 12px}
+.answer p:last-child{margin-bottom:0}
+.answer strong{color:var(--ink); font-weight:700}
+.answer ul{margin:0 0 12px; padding-left:18px}
+.answer li{margin-bottom:6px}
+
+.tag{display:inline-block; font-size:11.5px; font-weight:700; padding:3px 9px; border-radius:6px;
+  margin:0 0 12px; letter-spacing:.02em}
+.tag.data{background:var(--ok-soft); color:var(--ok)}
+.tag.real{background:var(--accent-soft); color:var(--accent)}
+
+.callout{background:var(--accent-soft); border-left:3px solid var(--accent); border-radius:0 8px 8px 0;
+  padding:14px 16px; margin:14px 0 0; font-size:14px; color:var(--ink-2)}
+.callout b{color:var(--ink)}
+
+.tablewrap{overflow-x:auto; margin:0 0 12px; border:1px solid var(--line); border-radius:10px}
+table{border-collapse:collapse; width:100%; min-width:420px; font-size:14px}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--line)}
+th{background:var(--bg); font-weight:700; color:var(--ink); font-size:13px; white-space:nowrap}
+tr:last-child td{border-bottom:none}
+td.num{text-align:right; white-space:nowrap; font-variant-numeric:tabular-nums}
+
+
+
+
+/* ── 상담신청 고정바 + 모달 ───────── */
+body{padding-bottom:78px}
+.stickybar{position:fixed; left:0; right:0; bottom:0; z-index:60; background:var(--surface);
+  border-top:1px solid var(--line); padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  box-shadow:0 -6px 24px rgba(0,0,0,.08)}
+.stickyrow{max-width:860px; margin:0 auto; display:flex; align-items:center; gap:14px}
+.stickytxt{flex:1; min-width:0; font-size:13.5px; color:var(--ink-2); line-height:1.45}
+.stickytxt b{color:var(--ink); display:block; font-size:15px; font-weight:700; letter-spacing:-.02em}
+.stickybtn{flex:0 0 auto; background:var(--accent); color:#fff; border:none; border-radius:99px;
+  font-size:15px; font-weight:700; padding:13px 26px; cursor:pointer; font-family:inherit}
+@media (max-width:520px){ .stickytxt{display:none} .stickybtn{width:100%; padding:15px} }
+
+.modal{position:fixed; inset:0; z-index:100; background:rgba(0,0,0,.5); display:none;
+  align-items:flex-end; justify-content:center; padding:0}
+.modal.on{display:flex}
+@media (min-width:600px){ .modal{align-items:center; padding:24px} }
+.sheet{background:var(--surface); width:100%; max-width:480px; border-radius:18px 18px 0 0;
+  padding:26px 22px calc(26px + env(safe-area-inset-bottom)); max-height:92vh; overflow-y:auto}
+@media (min-width:600px){ .sheet{border-radius:18px} }
+.sheet h3{margin:0 0 6px; font-size:20px; font-weight:900; letter-spacing:-.025em}
+.sheet .sub{margin:0 0 20px; font-size:13.5px; color:var(--ink-3); line-height:1.6}
+.field{margin-bottom:14px}
+.field label{display:block; font-size:13px; font-weight:700; margin-bottom:6px; color:var(--ink)}
+.field input, .field select, .field textarea{width:100%; font-family:inherit; font-size:16px;
+  padding:12px 14px; border:1px solid var(--line); border-radius:10px; background:var(--bg);
+  color:var(--ink); -webkit-appearance:none}
+.field textarea{min-height:72px; resize:vertical}
+.field input:focus, .field select:focus, .field textarea:focus{outline:none; border-color:var(--accent)}
+.agree{display:flex; gap:9px; align-items:flex-start; font-size:12.5px; color:var(--ink-2); line-height:1.6; margin:4px 0 18px}
+.agree input{margin-top:3px; flex:0 0 auto; width:17px; height:17px; accent-color:var(--accent)}
+.submit{width:100%; background:var(--accent); color:#fff; border:none; border-radius:10px;
+  font-size:16px; font-weight:700; padding:15px; cursor:pointer; font-family:inherit}
+.submit:disabled{opacity:.5; cursor:default}
+.closebtn{background:none; border:none; color:var(--ink-3); font-size:14px; cursor:pointer;
+  font-family:inherit; display:block; margin:14px auto 0; padding:6px}
+.msg{font-size:14px; padding:12px 14px; border-radius:10px; margin-bottom:14px; display:none}
+.msg.ok{display:block; background:var(--ok-soft); color:var(--ok)}
+.msg.err{display:block; background:var(--warn-soft); color:var(--warn)}
+
+
+
+.cta .ctalead{font-size:clamp(16px,2.6vw,19px); font-weight:700; color:var(--ink);
+  letter-spacing:-.02em; line-height:1.55; margin:0 0 14px}
+
+/* ── CTA 인라인 신청 폼 ───────── */
+.inlinebox{margin-top:26px; padding-top:24px; border-top:1px solid var(--line); text-align:left}
+.ibtitle{font-size:14px; font-weight:700; color:var(--ink); margin:0 0 12px; text-align:center}
+.ibrow{display:flex; gap:8px; align-items:stretch; max-width:560px; margin:0 auto}
+.ibrow input{flex:1 1 0; min-width:0; font-family:inherit; font-size:16px; padding:13px 14px;
+  border:1px solid var(--line); border-radius:10px; background:var(--bg); color:var(--ink); -webkit-appearance:none}
+.ibrow input:focus{outline:none; border-color:var(--accent)}
+.ibbtn{flex:0 0 auto; background:var(--accent); color:#fff; border:none; border-radius:10px;
+  font-family:inherit; font-size:15px; font-weight:700; padding:0 22px; cursor:pointer; white-space:nowrap}
+.ibbtn:disabled{opacity:.5; cursor:default}
+.ibagree{display:flex; gap:8px; align-items:flex-start; max-width:560px; margin:12px auto 0;
+  font-size:12px; color:var(--ink-3); line-height:1.6}
+.ibagree input{margin-top:2px; flex:0 0 auto; width:16px; height:16px; accent-color:var(--accent)}
+.ibmsg{display:none; max-width:560px; margin:0 auto 12px; font-size:14px; padding:12px 14px; border-radius:10px}
+.ibmsg.ok{display:block; background:var(--ok-soft); color:var(--ok)}
+.ibmsg.err{display:block; background:var(--warn-soft); color:var(--warn)}
+@media (max-width:560px){
+  .ibrow{flex-direction:column}
+  .ibbtn{padding:15px 20px}
+}
+
+/* ── 모바일 최적화 ───────── */
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  header.hero{padding:40px 0 32px}
+  h1{letter-spacing:-.035em}
+  .lead{font-size:15px}
+  .stats{margin-top:28px}
+  .stat{padding:16px 16px}
+  .stat .n{font-size:20px}
+  section{padding:40px 0 4px; scroll-margin-top:56px}
+  .sechead{gap:9px; flex-wrap:wrap}
+  summary{padding:16px 44px 16px 16px; font-size:15.5px}
+  summary::after{right:18px; top:24px; width:8px; height:8px}
+  .answer{padding:0 16px 18px; font-size:14.5px}
+  .callout{padding:12px 14px; font-size:13.5px}
+  th,td{padding:10px 12px; font-size:13.5px}
+  table{min-width:340px}
+  .cta{padding:30px 20px; margin-top:44px}
+  .btnrow{flex-direction:column}
+  .btn{width:100%; padding:15px 20px}
+  nav.chips{padding:10px 0}
+  .chip{font-size:12.5px; padding:6px 12px}
+}
+@media (max-width:380px){
+  .wrap{padding:0 14px}
+  h1{font-size:26px}
+  summary{font-size:15px}
+}
+
+/* ── CTA ───────── */
+.cta{margin:60px 0 0; background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:38px 28px; text-align:center}
+.cta h3{font-size:clamp(19px,3vw,24px); font-weight:900; margin:0 0 10px; letter-spacing:-.025em}
+.cta p{color:var(--ink-2); font-size:15px; margin:0 0 24px}
+.btn{display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:700;
+  font-size:15px; padding:14px 30px; border-radius:99px}
+.btn.ghost{background:transparent; color:var(--ink); border:1px solid var(--line); margin-left:8px}
+.btnrow{display:flex; gap:10px; justify-content:center; flex-wrap:wrap}
+.btn.ghost{margin-left:0}
+
+footer{margin-top:56px; border-top:1px solid var(--line); padding:28px 0 60px; color:var(--ink-3); font-size:12.5px}
+footer p{margin:0 0 8px; line-height:1.7}
+</style>
+</head>
+<body>
+
+
+
+<header class="hero"><div class="wrap">
+  <span class="eyebrow">창업 FAQ · 2026 개정판</span>
+  <h1>정말 벌리나요?<br>얼마나 드나요?<br><em>그래서 얼마나 남나요?</em></h1>
+  <p class="lead">상담하러 오신 분들이 <strong>가장 많이 하시는 질문</strong>을 그대로 모았습니다. 답변이 저희에게 불리한 질문도 빼지 않았습니다. 다 읽는 데 15분 정도 걸립니다.</p>
+  <p class="meta">앤딩스터디카페 · (주)무인화연구소 · 2026년 9월 기준</p>
+
+  <div class="stats">
+    <div class="stat"><span class="n">49호점</span><span class="l">앤딩 운영 지점<br>(2026년 9월 기준)</span></div>
+    <div class="stat"><span class="n">폐점 0건</span><span class="l">브랜드 론칭 이후<br>(2026년 9월 기준)</span></div>
+    <div class="stat"><span class="n">약 1억 2천</span><span class="l">40평 기준 창업비용<br>(보증금·권리금 별도)</span></div>
+    <div class="stat"><span class="n">평당 220만원</span><span class="l">앤딩 평균 평당 매출<br>(정보공개서 기준)</span></div>
+    <div class="stat"><span class="n">시간당 1,000원</span><span class="l">앤딩 기본 요금 정책<br>(업계 평균 2시간 3~5천원)</span></div>
+  </div>
+</div></header>
+
+<nav class="chips"><div class="wrap"><div class="chiprow">
+  <a class="chip" href="#s1">지금 시작해도 될까요</a>
+  <a class="chip" href="#s2">수익 이야기</a>
+  <a class="chip" href="#s3">자리가 전부일까요</a>
+  <a class="chip" href="#s4">정말 무인인가요</a>
+  <a class="chip" href="#s5">다른 수익원</a>
+  <a class="chip" href="#s6">본사를 믿어도 될까요</a>
+  <a class="chip" href="#s7">퇴점하실 때</a>
+</div></div></nav>
+
+<main class="wrap">
+
+<!-- ══ 1 ══ -->
+<section id="s1">
+  <div class="sechead"><span class="secnum">01</span><h2>지금 시작해도 될까요?</h2></div>
+  <p class="secsub">"이제 끝난 시장"이라는 말과 "지금이 기회"라는 말이 같이 돕니다. 둘 다 맞습니다. 어느 쪽 스터디카페인지에 따라 다릅니다.</p>
+
+  <details>
+    <summary>이미 레드오션 아닌가요?</summary>
+    <div class="answer">
+      <p>네, 맞습니다. 다만 <strong>2세대 스터디카페</strong> 얘기입니다.</p>
+      <p>1세대는 독서실이었습니다. 2세대는 인테리어와 프리미엄으로 승부를 봤습니다. 대리석, 화려한 조명, 높은 단가. 투자비가 2억을 넘어가는데 객단가로는 회수가 안 됩니다. 이쪽은 확실히 레드오션이고, 지금도 매물이 쏟아집니다.</p>
+      <p>3세대는 <strong>무인 + 프린트 + AI 관리형</strong>입니다. 공사비를 낮추고 좌석 효율을 올려 회수 기간을 줄이는 구조입니다. 2026년 창업 시장의 화두는 고정비 절감과 운영 효율성이고, 인력 투입이 적은 무인 스터디카페가 대안 업종으로 꼽히고 있습니다. 여기는 아직 자리가 남아 있습니다.</p>
+      <p>정리하면 <strong>업종이 레드오션인 게 아니라 특정 모델이 레드오션</strong>입니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>학생 수가 줄어드는데 10년 뒤에도 남아있을까요?</summary>
+    <div class="answer">
+      <span class="tag data">2026년 시장 데이터</span>
+      <p>이 질문은 예전 FAQ에 없던 질문인데, 요즘 가장 많이 받습니다. 정직하게 답하면 <strong>학생 수요만 보고 들어가면 위험한 게 맞습니다.</strong></p>
+      <p>다만 시장이 이미 이동했습니다. 스터디카페는 시험 시즌에만 잘되는 업종에서 직장인 업무·자기계발·개인 프로젝트까지 쓰는 생활형 공간으로 재정의되고 있습니다. 업계 1위 브랜드 직영 데이터에서는 성인 이용 비중이 약 80%까지 올라왔다고 발표됐습니다.</p>
+      <p>그래서 앤딩도 기준을 바꿨습니다. 예전에는 학생 65 : 성인 35을 이상적으로 봤지만, 지금은 <strong>성인 수요를 받을 수 있는 상권인가</strong>를 먼저 봅니다. 자격증·프리랜서·재택근무 수요가 붙으면 방학 비수기가 완만해지고, 장기권 비중이 올라가 매출이 예측 가능해집니다. 앤딩워크라운지를 별도 브랜드로 키우는 이유도 같습니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>저희 동네에 이미 5개나 있는데 괜찮을까요?</summary>
+    <div class="answer">
+      <p>5개가 있다는 건 <strong>수요가 있다는 뜻이기도 합니다.</strong> 문제는 그 5개가 어떤 5개인지입니다.</p>
+      <p>실제로 ○○역 인근에 26번째로 오픈한 지점이 있습니다. 월세를 낮게 잡고 시간당 1,000원 구조를 맞췄고, 지금도 안정적으로 돌아갑니다. 더 중요한 건 <strong>그 뒤로 후발업체가 안 들어왔다는 것</strong>입니다. 비슷한 월세로 저 가격을 맞추려면 공사비를 저희 수준으로 낮춰야 하는데, 그게 쉽지 않기 때문입니다.</p>
+      <p>반대로, 5개가 전부 가성비 좋은 무인 매장이고 좌석 점유율도 높다면 저희도 말립니다. 상권분석에서 걸러야 할 몫입니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>근처 스터디카페 2곳, 독서실 3곳이 모두 어려움을 겪었는데 괜찮을까요?</summary>
+    <div class="answer">
+      <p>안 되는 이유부터 확인합니다. <strong>수요가 없어서 안 되는 곳</strong>과 <strong>구조가 잘못돼서 안 되는 곳</strong>은 완전히 다릅니다.</p>
+      <p>과한 인테리어 투자와 높은 단가로 싸우다 무너진 매장은 저희 경쟁 상대가 아닙니다. 오래 앉아 공부하는 사람에게 시간당 1,000원은 무시하기 어려운 차이입니다.</p>
+      <p>다만 실제로 유동 수요 자체가 빠진 상권도 있습니다. 그런 곳은 저희가 추천하지 않습니다. 숫자 늘리려고 넣었다가 점주님이 물리면 결국 브랜드가 손해입니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>비수기가 되면 매출이 크게 줄어드나요?</summary>
+    <div class="answer">
+      <p>학생 비중이 높은 지점은 <strong>방학이 비수기</strong>입니다. 다만 성인 고객(자격증·승진시험·재택근무)이 이 구간을 메워줍니다.</p>
+      <p>그래서 성인 수요가 섞인 상권일수록 연중 매출 편차가 작아집니다. 상권분석 단계에서 이 부분을 같이 봅니다.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ══ 2 ══ -->
+<section id="s2">
+  <div class="sechead"><span class="secnum">02</span><h2>수익 이야기부터 드릴게요</h2></div>
+  <p class="secsub">가장 궁금하신 부분이라는 걸 압니다. 저희에게 유리한 숫자만 골라서 보여드리지는 않겠습니다.</p>
+
+  <details>
+    <summary>40평이면 창업비용이 얼마나 드나요?</summary>
+    <div class="answer">
+      <span class="tag real">40평 실제 견적 기준</span>
+      <div class="tablewrap"><table>
+        <tr><th>항목</th><th>금액</th></tr>
+        <tr><td>공사비 (평당 280만원 × 40평)</td><td class="num">1억 1,200만원</td></tr>
+        <tr><td>키오스크</td><td class="num">650만원</td></tr>
+        <tr><td>AI 무인관리 태블릿 (10대 기준)</td><td class="num">700만원</td></tr>
+        <tr><td><strong>합계 (VAT 별도)</strong></td><td class="num"><strong>1억 2,550만원</strong></td></tr>
+      </table></div>
+      <p><strong>여기 안 들어간 것:</strong> 보증금·권리금, 전기 승압, 소방 공사. 승압과 소방은 건물 컨디션에 따라 편차가 워낙 커서 미리 넣으면 오히려 견적이 부정확해집니다. 현장 확인 후 별도 안내드립니다.</p>
+      <p>운영자금은 별도로 준비하시는 걸 권합니다. 손익분기 도달까지 보통 수개월이 걸리기 때문에, <strong>고정비 3개월치 정도는 현금으로 남겨두고</strong> 시작하시는 게 안전합니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>평당 280만원이면 비싼 것 아닌가요? 다른 곳은 150만원이던데요.</summary>
+    <div class="answer">
+      <span class="tag data">2026년 시세 비교</span>
+      <p>가장 많이 받는 질문이고, 가장 오해가 많은 질문입니다. <strong>포함 범위가 다릅니다.</strong></p>
+      <p>현재 시장에서 스터디카페 인테리어 평당 150만원대를 제시하는 곳들이 있습니다. 프리미엄 설비를 붙이면 평당 +50만원, 여기에 키오스크·도어락·CCTV·본사 교육을 묶은 시스템·가맹비가 별도로 2,500만원 안팎 붙는 구조가 일반적입니다.</p>
+      <p>앤딩의 평당 280만원에는 아래가 <strong>전부 포함</strong>입니다.</p>
+      <ul>
+        <li>목공, 전기, 바닥, 페인트, 덕트, 준공청소 1회</li>
+        <li>블라인드, 가구공사, 사물함, 의자</li>
+        <li>CCTV, 간판(메인 1개 + 돌출 1개), 내부 사인물, 설계비</li>
+      </ul>
+      <p>업계 관행 중 하나가 <strong>평당 단가를 낮게 보여주고 항목을 쪼개 붙이는 것</strong>입니다. 에어컨·조명 1,100만원, 교육홍보비 800만원, 무인시스템 2,200만원, 가맹비 300만원, 로열티 매출의 5%. 이런 식으로 따라붙으면 합계는 역전됩니다.</p>
+      <div class="callout"><b>비교하실 때 이렇게 물어보세요.</b> "평당 얼마인가요"가 아니라 <b>"그래서 문 열 때까지 제 통장에서 총 얼마가 나가나요?"</b> 저희 견적이 아니라도 좋습니다. 이 질문에 한 장으로 답 못 하는 업체는 거르셔도 됩니다.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>매달 나가는 고정비는 얼마인가요?</summary>
+    <div class="answer">
+      <span class="tag real">40평 기준 예시</span>
+      <div class="tablewrap"><table>
+        <tr><th>항목</th><th>월 금액</th></tr>
+        <tr><td>월세</td><td class="num">180만원</td></tr>
+        <tr><td>관리비</td><td class="num">20만원</td></tr>
+        <tr><td>전기세</td><td class="num">50만원</td></tr>
+        <tr><td>비품 구입비</td><td class="num">30만원</td></tr>
+        <tr><td>청소비</td><td class="num">20만원</td></tr>
+        <tr><td>잡비</td><td class="num">약간</td></tr>
+        <tr><td><strong>합계</strong></td><td class="num"><strong>약 300만원</strong></td></tr>
+      </table></div>
+      <p>여기에 로열티(매출의 4%)가 붙습니다. 인건비는 0에 가깝습니다. 그게 이 업종의 핵심입니다.</p>
+      <p>보시면 알겠지만 <strong>고정비의 60% 이상이 월세</strong>입니다. 다른 항목은 줄여봐야 몇십만원이고, 그마저도 관리 품질을 깎아야 합니다. <strong>결국 이 사업의 수익성은 임대차계약서에 사인하는 날 거의 결정됩니다.</strong> 왜 그런지는 <a href="#s3" style="color:var(--accent)">03. 자리가 전부다</a>에서 숫자로 정리했습니다.</p>
+      <p>지역과 건물 컨디션에 따라 위아래로 움직입니다. 특히 월세는 상권에 따라 두 배 차이도 납니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>24시간 운영하면 전기세는 감당이 되나요?</summary>
+    <div class="answer">
+      <p>50평 기준 <strong>월 40~70만원</strong>을 예상합니다. 한여름·한겨울에는 더 나옵니다.</p>
+      <p>24시간 냉난방과 환기를 돌리는 업종이라 전기세는 줄이기 어려운 고정비입니다. 그래서 계약 전에 <strong>전기 용량과 승압 비용</strong>을 먼저 확인합니다. 여기서 몇백만원이 갈립니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>그래서 실제로 얼마나 남나요?</summary>
+    <div class="answer">
+      <p>이 질문에 숫자 하나로 답하는 본사는 의심하셔야 합니다. <strong>가맹사업법상 예상 매출액은 서면으로, 근거자료와 함께</strong> 제공하게 되어 있습니다. 구두로 "얼마 법니다"라고 말하는 건 법 위반 소지가 있습니다.</p>
+      <p>말씀드릴 수 있는 건 구조입니다. 매출은 <strong>좌석수 × 점유율 × 단가</strong>이고, 순이익은 여기서 월세·관리비·전기세·로열티를 뺀 값입니다. 인건비가 빠지기 때문에 같은 매출이면 유인 업종보다 남는 게 많습니다.</p>
+      <p>지점별 편차는 큽니다. 평수, 좌석수, 상권 특성, 비수기·성수기가 전부 영향을 줍니다. <strong>구체적인 숫자는 상담 시 대상 입지 기준으로 예상매출액 산정서를 서면 제공</strong>드립니다. 그 자리에서 근거도 같이 보여드립니다.</p>
+      <div class="callout">본사 입장에서 가장 편한 건 잘되는 지점 숫자만 보여드리는 겁니다. 그렇게 시작하면 오픈 3개월 뒤에 서로 얼굴 붉힙니다. 평균과 하위 구간을 같이 보시는 걸 권합니다.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>비용은 언제 얼마씩 지급하나요?</summary>
+    <div class="answer">
+      <div class="tablewrap"><table>
+        <tr><th>시점</th><th>비율</th></tr>
+        <tr><td>공사 착수 전</td><td class="num">50%</td></tr>
+        <tr><td>착수 2주 후</td><td class="num">40%</td></tr>
+        <tr><td>오픈일</td><td class="num">10%</td></tr>
+      </table></div>
+      <p>처음에 100% 입금하는 구조가 아닙니다. 공정 진행에 맞춰 나눠 냅니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>본사에 매달 내는 비용은 얼마인가요?</summary>
+    <div class="answer">
+      <p>현재 <strong>로열티는 매출의 4%</strong>입니다. 여기에 교육·마케팅 지원이 포함됩니다.</p>
+      <p>솔직히 말씀드리면, 초기에는 가맹비·로열티를 아예 안 받았습니다. 그런데 <strong>본사가 다 퍼주는 구조는 오래 못 갑니다.</strong> 여러 프랜차이즈가 본사 자금난으로 무너지면서 지점까지 흔들리는 걸 봤습니다. 본사가 버텨야 지점이 삽니다.</p>
+      <p>받은 돈은 인적·물적 투자에 씁니다. 이벤트 이미지 제작, 수익 개선 컨설팅, 블로그·검색 노출 작업, 시스템 업데이트 같은 것들입니다. <strong>매출이 안 나오면 본사도 못 가져갑니다.</strong> 지점이 안 되는데 본사만 고정으로 떼어가는 구조는 만들지 않았습니다.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ══ 3 ══ -->
+<section id="s3">
+  <div class="sechead"><span class="secnum">03</span><h2>자리가 전부일까요?</h2></div>
+  <p class="secsub">매출의 80%는 자리에서 결정됩니다. 인테리어로는 뒤집기 어렵습니다.</p>
+
+  <details>
+    <summary>자리는 제가 직접 찾아야 하나요?</summary>
+    <div class="answer">
+      <p>아닙니다. 상권분석 담당 대표가 직접 붙습니다. <strong>직영점을 낸다는 기준으로</strong> 봅니다.</p>
+      <p>온라인으로 대충 세 군데 뽑아 드리고 고르라고 하지 않습니다. 후보에 들면 하루 종일 현장에 상주해서 실질 유동인구, 그러니까 <strong>실제로 여기 앉아 공부할 사람</strong>이 얼마나 지나가는지를 셉니다. 주변 경쟁사도 직접 들어가 봅니다.</p>
+      <p>그래서 시간이 걸립니다. 최대 200곳까지 보는 경우도 있습니다. 급하게 오픈 일정을 잡으셔야 한다면 미리 문의 주셔야 합니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>좋은 자리의 조건 세 가지만 알려주세요</summary>
+    <div class="answer">
+      <ul>
+        <li><strong>공부할 사람이 실제로 지나가는 곳.</strong> 세대수 많다고, 학교·학원 근처라고 되는 게 아닙니다.</li>
+        <li><strong>40~60평에 월세 가성비가 맞는 곳.</strong> 옆에 경쟁사가 들어와도 버틸 수 있는 원가 구조가 나와야 합니다.</li>
+        <li><strong>화장실 컨디션.</strong> 특히 분리된 여자화장실. 이거 하나로 고객이 더 먼 곳으로 옮겨갑니다.</li>
+      </ul>
+      <p>실제로는 건물주 성향, 관리비, 누수 이력, 층고, 층수, 간판 위치까지 봐야 합니다. 100점짜리 자리는 거의 없습니다. <strong>수익이 나는 자리는 찾을 수 있습니다.</strong></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>지하층도 괜찮을까요? 엘리베이터 없는 4층은요?</summary>
+    <div class="answer">
+      <p><strong>지하가 오히려 낫습니다.</strong> 월 고정비를 크게 줄일 수 있기 때문입니다. 컨설팅했던 매장 중 최고 매출을 내는 곳이 지하입니다.</p>
+      <p>공부하러 오는 사람은 천장을 보지 않습니다. 시선은 대부분 책상에 머뭅니다. 그래서 앤딩은 뷰나 층보다 <strong>책상 폭(타 브랜드보다 5~10cm 넓게), 조명, 의자</strong>에 더 씁니다.</p>
+      <p>오히려 <strong>엘리베이터 없는 3·4층이 지하보다 불리</strong>합니다. 계단 두 층은 생각보다 큰 진입장벽입니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>월세 100만원 차이가 그렇게 중요한가요?</summary>
+    <div class="answer">
+      <span class="tag real">계산 예시</span>
+      <p>이게 이 사업에서 <strong>가장 중요한 질문</strong>입니다.</p>
+      <p>무인 스터디카페는 인건비가 0에 가깝고 원재료비도 사실상 없습니다. 그래서 <strong>고정비의 대부분이 월세</strong>입니다. 다른 업종은 인건비·재료비를 조절해서 버틸 수 있지만, 여기는 <strong>줄일 수 있는 항목이 월세 말고 없습니다.</strong></p>
+      <p>50평, 월매출 900만원으로 같은 조건에 월세만 다르게 놓아보겠습니다.</p>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>월세 180만원</th><th>월세 300만원</th></tr>
+        <tr><td>월매출</td><td class="num">900만원</td><td class="num">900만원</td></tr>
+        <tr><td>월세</td><td class="num">180만원</td><td class="num">300만원</td></tr>
+        <tr><td>관리비·전기·비품·청소</td><td class="num">120만원</td><td class="num">120만원</td></tr>
+        <tr><td>로열티 (매출 4%)</td><td class="num">36만원</td><td class="num">36만원</td></tr>
+        <tr><td><strong>월 순이익</strong></td><td class="num"><strong>564만원</strong></td><td class="num"><strong>444만원</strong></td></tr>
+        <tr><td>투자금 1억 2천 회수</td><td class="num">약 21개월</td><td class="num">약 27개월</td></tr>
+      </table></div>
+      <p>월세 120만원 차이가 <strong>연 1,440만원</strong>, 회수 기간 <strong>6개월</strong> 차이를 만듭니다. 그리고 이건 1년으로 끝나지 않습니다. <strong>5년이면 7,200만원</strong>입니다. 여기에 임대료 인상분까지 붙습니다.</p>
+      <p>매출은 내 마음대로 못 정합니다. <strong>월세는 계약하는 순간 내가 정합니다.</strong> 이 업종에서 점주가 통제할 수 있는 가장 큰 변수입니다.</p>
+      <div class="callout"><b>그래서 저희가 상권분석에 시간을 오래 씁니다.</b> 보증금 3,000 / 월세 220 이하를 고집하는 건 인색해서가 아닙니다. 이 선을 지켜야 순이익이 남고, 순이익이 남아야 나중에 <b>팔고 나올 수 있기</b> 때문입니다. 좋은 자리를 비싸게 잡는 건 누구나 합니다. 좋은 자리를 싸게 잡는 게 실력입니다.</div>
+      <p>※ 위 표는 구조를 보여드리기 위한 계산 예시이며, 특정 지점의 실적이 아닙니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>월세는 얼마까지가 적당한가요?</summary>
+    <div class="answer">
+      <p>먼저 <strong>보증금 3,000만원 이하 / 월세 220만원 이하</strong>를 기준으로 봅니다. 앤딩 전 매장이 이 선 안에 들어와 있습니다.</p>
+      <p>다만 기계적으로 적용하지 않습니다. <strong>안 좋은 상권의 160만원보다 좋은 상권의 250만원이 나을 수 있습니다.</strong> 지역·건물 컨디션·층수를 같이 봅니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>몇 평이 적당한가요? 50평이면 몇 석이 나오나요?</summary>
+    <div class="answer">
+      <p><strong>40~50평</strong>을 먼저 권합니다. 실제로 가장 많이 오픈하는 구간입니다. 30평대도 수익이 나고, 수요가 받쳐주는 곳은 70~80평대도 좋습니다.</p>
+      <p>50평 기준 <strong>60~70석</strong> 나옵니다. 2인실·4인실 스터디룸을 하나씩 넣었을 때 기준입니다.</p>
+      <p>스터디룸은 지역 특성에 따라 다릅니다. 2인실·4인실 하나씩 권해드리지만 필수는 아닙니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>화장실이 남녀공용인데 괜찮을까요?</summary>
+    <div class="answer">
+      <p>가능하면 <strong>분리를 권합니다.</strong> 정 안 되면 층별로 남자 전용·여자 전용으로 나누는 방식을 권합니다.</p>
+      <p>운영해보면 압니다. <strong>화장실 때문에 조금 비싸도 다른 스터디카페로 옮깁니다.</strong> 더 먼 곳으로도 갑니다. 특히 여성 고객이 민감합니다. 좌석 몇 개보다 이게 매출에 더 영향을 줍니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>윗층이 노래방인데 소음은 괜찮을까요?</summary>
+    <div class="answer">
+      <p>가능하면 피합니다. 다만 상권이 정말 좋다면 <strong>인테리어 단계에서 소음을 한 번 더 잡고, 고급 백색소음기로 한 번 더 잡습니다.</strong></p>
+      <p>이미 해본 케이스입니다. 자양점 위층은 음악학원이라 매일 드럼을 칩니다. 다른 지점은 위층이 킥복싱장이라 매일 줄넘기를 합니다. <strong>현재 두 곳 다 소음 클레임이 없습니다.</strong></p>
+    </div>
+  </details>
+
+  <details>
+    <summary>상가 계약할 때 무엇을 조심해야 하나요?</summary>
+    <div class="answer">
+      <p>집 계약과 같습니다. 대출 여부, 건축물대장, 등기부등본 확인. 이건 보통 부동산이 봅니다.</p>
+      <p>점주님이 챙기실 건 <strong>특약</strong>입니다. 누수 책임, 화장실·계단 관리 범위, 관리비 포함 항목, 원상복구 범위. 여기서 나중에 분쟁이 납니다.</p>
+      <p>본사가 쌓아둔 팁이 많습니다. 계약 자리에 적극적으로 참여하시면 공유드립니다. 어필을 잘하면 <strong>렌트프리 한두 달</strong>을 받는 경우도 꽤 있습니다. 스터디카페는 공사 기간이 길어서 이 협의가 실제로 수백만원 차이를 만듭니다.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ══ 4 ══ -->
+<section id="s4">
+  <div class="sechead"><span class="secnum">04</span><h2>정말 무인으로 운영되나요?</h2></div>
+  <p class="secsub">"무인"이라고 하면서 실제로는 매일 나가야 하는 매장이 생각보다 많습니다.</p>
+
+  <details>
+    <summary>정말 사람 없이 운영되나요?</summary>
+    <div class="answer">
+      <span class="tag data">2026년 인건비 기준</span>
+      <p>가능합니다. 그리고 <strong>이게 이 업종의 존재 이유</strong>입니다.</p>
+      <p>2026년 최저시급은 10,320원, 2027년 적용분은 10,700원으로 의결됐습니다. 24시간 상주 인력을 두려면 3교대가 필요하고, 주휴수당까지 얹으면 연 1억에 가까운 인건비가 나갑니다. 무인 시스템 도입비는 그 한 해치의 일부입니다.</p>
+      <p>다만 <strong>"무인"이라고 하면서 실제로는 매일 나가야 하는 매장이 많습니다.</strong> 저희가 무인화연구소를 따로 운영하며 IoT, AI, 스마트사물함, 빅데이터에 계속 투자하는 이유가 이겁니다. 원격 통제, 입출입 통제기, AI 관리 태블릿으로 방문 횟수 자체를 줄이는 게 목표입니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>결국 직원을 써야 하는 것 아닌가요?</summary>
+    <div class="answer">
+      <p>상주 직원을 두고 운영하는 지점은 없습니다.</p>
+      <p>다만 <strong>오픈 후 한두 달은 점주님이 자주 나오시길 권합니다.</strong> 청소도 해보고 고객 반응도 보셔야, 나중에 총무에게 뭘 시킬지 정리가 됩니다. 이 과정을 건너뛰면 위임이 안 됩니다.</p>
+      <p>관리 포인트가 정리되면 총무 교육 후 넘기시면 됩니다. 이 단계까지 오면 <strong>다점포 운영도 가능</strong>합니다. 실제로 그렇게 하시는 점주님들이 계십니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>청소는 누가 하나요? 매일 매장에 나가야 하나요?</summary>
+    <div class="answer">
+      <p>점주님 성향에 따라 다릅니다. 매일 업체를 쓰는 분, 총무를 뽑는 분, 가족이 도는 분이 다 계십니다.</p>
+      <p>경험자로서 권하는 방식은 이겁니다. <strong>새벽·오전엔 업체나 점주님이, 오후·저녁엔 총무가.</strong></p>
+      <p>이유가 있습니다. 새벽에 아무리 깨끗이 해도 <strong>오전에 공부하고 간 학생이 책상을 안 치우면, 오후에 온 손님은 "여기 관리 안 되네"라고 생각합니다.</strong> 고객이 보는 건 청소 횟수가 아니라 자기가 앉는 순간의 상태입니다. 총무 모집은 매장 안에 문구만 붙여도 대체로 구해집니다. 이 부분도 가이드 드립니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>직장을 다니는데 전화 응대는 누가 하나요?</summary>
+    <div class="answer">
+      <p>콜센터를 운영합니다. <strong>주중 오전 9시~오후 6시</strong> 전화와 카톡 채널 응대를 대행하는 상품이 있습니다.</p>
+      <p>주중에는 본업에 집중하시면 됩니다. 투잡 환경을 만드는 건 저희 몫으로 보고 있습니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>키오스크가 650만원인데 더 저렴한 제품은 없나요?</summary>
+    <div class="answer">
+      <p>더 싼 것 있습니다. 저희도 여러 개 써봤습니다. 그리고 바꿨습니다.</p>
+      <p>무인 매장에서 키오스크는 <strong>24시간 근무하는 직원</strong>입니다. 오류가 나면 그 시간 매출이 통째로 날아가고, 새벽에 점주님 전화가 울립니다. 1년을 돌려도 잔오류가 없는 쪽을 골랐습니다.</p>
+      <p>키오스크에서 아끼려다 <strong>결국 교체하거나 사람을 더 쓰는</strong> 경우를 봤습니다. 시간 잃고 비용 잃고 스트레스까지 받는 구조입니다. 직접 키오스크를 유통해본 경험에서 내린 선택입니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>앱으로도 결제가 되나요?</summary>
+    <div class="answer">
+      <p>됩니다. 앱에서 개인석·자유석·사물함·스터디룸 예약과 결제가 전부 가능합니다. QR로 입·퇴실하면 키오스크 앞에서 줄 설 필요도 없습니다.</p>
+      <p>전 매장 통합 회원이라 다른 앤딩 지점도 그대로 이용할 수 있습니다. 앱을 직접 다운받아서 써보시는 걸 권합니다. 고객 경험을 점주님이 먼저 아셔야 합니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>결제하지 않고 이용하는 분은 어떻게 하나요?</summary>
+    <div class="answer">
+      <p>초반에 가끔 있습니다. 그런데 <strong>좌석 점유율이 올라가면 자연스럽게 사라집니다.</strong> 1,000원 아끼자고 눈치 보며 앉기가 어려워지기 때문입니다.</p>
+      <p>솔직히 말씀드리면, 여기 신경 쓰다 받는 스트레스가 손실보다 큽니다. 그 에너지는 매출 올리는 데 쓰시는 게 낫습니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>환불 요청은 어떻게 처리하나요?</summary>
+    <div class="answer">
+      <p>카드 취소 또는 계좌이체로 처리합니다. 환불 비율은 별도 정책이 있어서 채널톡으로 문의 주시면 안내드립니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>고정석도 운영할 수 있나요?</summary>
+    <div class="answer">
+      <p>가능합니다. 점주님이 선택하시면 됩니다.</p>
+      <p>다만 고정석을 많이 깔면 <strong>수요 변동에 대응하기 어려워집니다.</strong> 비수기에 고정석이 빠지면 그 자리를 회전으로 메우기 힘듭니다. 상권 분석 결과를 보고 비율을 같이 정하는 걸 권합니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>자판기를 두면 수익이 더 늘지 않을까요?</summary>
+    <div class="answer">
+      <p><strong>먹거리 자판기는 절대 권하지 않습니다.</strong> 벌레가 꼬이고, 음료가 있으면 다른 걸 같이 먹습니다. 소란도 늘어납니다. 고객이 여기 오는 이유를 생각하면 답이 나옵니다.</p>
+      <p>문구류 자판기는 그나마 고려 대상이지만 손이 많이 갑니다.</p>
+      <p>대신 <strong>무인 24시 프린트카페를 샵인샵으로</strong> 넣었습니다. 관리 부담은 자판기와 비교가 안 됩니다. 추가 수익 구조는 <a href="#s5" style="color:var(--accent)">05. 좌석 말고 또 뭘로 버나</a>에서 자세히 정리했습니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>공사 기간은 얼마나 걸리나요?</summary>
+    <div class="answer">
+      <p>일반적으로 <strong>착공 후 7주 뒤 목요일 오픈</strong>을 제안드립니다. 변수가 없으면 더 당겨지기도 합니다.</p>
+      <p>중요한 건 이 7주 앞에 <strong>상권분석 기간이 따로 있다</strong>는 점입니다. 저희는 이 단계를 길게 가져갑니다. 원하시는 오픈 시점이 있다면 역산해서 미리 문의 주셔야 합니다.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ══ 5 ══ -->
+<!-- ══ 5 ══ -->
+<section id="s5">
+  <div class="sechead"><span class="secnum">05</span><h2>좌석 매출 외에 다른 수익원은 없나요?</h2></div>
+  <p class="secsub">같은 평수에서 얼마나 더 끌어내는지에 따라 순이익이 달라집니다.</p>
+
+  <details>
+    <summary>좌석을 다 채우면 그게 매출의 한계 아닌가요?</summary>
+    <div class="answer">
+      <span class="tag data">2026년 시장 흐름</span>
+      <p>좌석만 팔면 그렇습니다. 40평에 60석이면 이론상 최대치가 정해지고, 거기서부터는 가격을 올리는 수밖에 없습니다. 그런데 가격을 올리면 앤딩의 강점이 사라집니다.</p>
+      <p>그래서 시장이 이동 중입니다. 스터디카페 수익 구조가 <strong>좌석 판매 중심에서 체류·공간 활용 중심으로</strong> 넓어지고 있고, 업계 1위 브랜드도 2026년 들어 비상주 오피스 연계를 확대하고 있습니다.</p>
+      <p>앤딩은 <strong>같은 평수, 같은 좌석에서 수익원을 4개로 나눕니다.</strong></p>
+      <div class="tablewrap"><table>
+        <tr><th>수익원</th><th>좌석 점유</th><th>월 예상</th></tr>
+        <tr><td>스터디카페 좌석</td><td>본체</td><td class="num">지점별</td></tr>
+        <tr><td>무인 24시 프린트카페</td><td>없음 (외부 배치)</td><td class="num">30~50만원</td></tr>
+        <tr><td>비상주 오피스</td><td>없음 (주소지)</td><td class="num">확인 필요</td></tr>
+        <tr><td>매장 광고</td><td>없음</td><td class="num">확인 필요</td></tr>
+      </table></div>
+      <p>핵심은 <strong>셋 다 좌석을 잡아먹지 않는다</strong>는 점입니다. 고정비는 그대로인데 매출만 얹히니, 늘어난 금액이 거의 그대로 순이익으로 남습니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>무인 프린트카페는 나중에 따로 비용이 드나요?</summary>
+    <div class="answer">
+      <p>아닙니다. <strong>스터디카페 공사할 때 같이 넣습니다.</strong> 나중에 붙이면 전기·동선·집기를 다시 손봐야 하는데, 동시 오픈이면 그 비용이 안 듭니다.</p>
+      <p>위치는 <strong>키오스크 바깥</strong>입니다. 그래서 스터디카페 회원이 아니어도 누구나 24시간 쓸 수 있습니다. 동네 프린트 수요를 그대로 받습니다.</p>
+      <p>현재 지점 기준 <strong>월 30~50만원</strong> 부수입이 나옵니다. 큰 돈은 아니지만 <strong>전기세를 덮는 금액</strong>입니다. 관리 부담도 자판기와 비교가 안 될 만큼 적습니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>비상주 오피스는 무엇인가요?</summary>
+    <div class="answer">
+      <p>사업자등록을 할 주소지가 필요한 사람에게 <strong>주소지와 우편 수령만 제공</strong>하는 서비스입니다. 실제로 앉아서 일하지 않기 때문에 <strong>좌석을 전혀 쓰지 않습니다.</strong></p>
+      <p>온라인 셀러, 프리랜서, 1인 법인, 부업 사업자가 주 수요층입니다. 비대면 사업이 늘면서 수요가 계속 올라오고 있고, 업계 1위 브랜드도 2026년 8월 이 모델을 가맹점 수익 다각화 수단으로 확대한다고 발표했습니다.</p>
+      <p>점주 입장에서 좋은 점은 <strong>월 단위로 반복되는 고정 매출</strong>이라는 것입니다. 방학이든 시험기간이든 변동이 없습니다. 비수기 매출 곡선을 평평하게 만들어주는 역할을 합니다.</p>
+      <div class="callout"><b>단, 아무 건물이나 되는 건 아닙니다.</b> 건축물 용도와 임대차계약서상 전대 가능 여부에 따라 사업자등록 주소지로 쓸 수 없는 경우가 있습니다. 상권분석·계약 단계에서 저희가 같이 확인합니다.</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>매장 광고로도 수익이 되나요?</summary>
+    <div class="answer">
+      <p>가능합니다. 스터디카페는 <strong>같은 사람이 오래, 반복해서 머무는 공간</strong>입니다. 광고 매체로서는 조건이 꽤 좋습니다.</p>
+      <p>특히 상권 안의 학원, 과외, 자격증 업체처럼 <strong>고객층이 정확히 겹치는 곳</strong>이 붙습니다. 지나가는 사람에게 뿌리는 전단지보다 전환이 낫기 때문입니다.</p>
+      <p>이 부분은 지점 상권에 따라 편차가 큽니다. 되는 곳은 되고, 안 되는 곳은 안 됩니다. <strong>있으면 좋은 보너스</strong> 정도로 보시고, 이걸 전제로 수익 계산을 하지는 마세요.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>모디앱은 점주에게 어떤 도움이 되나요?</summary>
+    <div class="answer">
+      <p>먼저 분명히 말씀드리면 <strong>모디앱 자체는 돈을 벌어다 주지 않습니다.</strong> 매출을 만드는 게 아니라 <strong>나가려는 고객을 붙잡는 장치</strong>입니다.</p>
+      <p>QR로 입·퇴실하면 <strong>순공부시간이 자동으로 쌓이고, 매장 랭킹보드에 올라갑니다.</strong> 오늘 3위면 내일 또 옵니다. 스터디카페는 옆 매장으로 갈아타는 비용이 거의 없는 업종인데, 여기에 <strong>쌓아온 기록이라는 전환 비용</strong>이 생깁니다.</p>
+      <p>점주님께는 월 단위로 이용 회원 수, 순공시간 같은 데이터를 점주 게시판으로 드립니다. 어느 요일 어느 시간대가 비는지 보고 이벤트를 거는 식으로 쓰시면 됩니다.</p>
+      <p>전 지점에 단계적으로 도입 중이며, 신규 오픈 지점은 처음부터 적용됩니다.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ══ 6 ══ -->
+<section id="s6">
+  <div class="sechead"><span class="secnum">06</span><h2>본사를 믿어도 될까요?</h2></div>
+  <p class="secsub">믿어달라고 말씀드리지 않겠습니다. 직접 검증하실 수 있는 방법을 알려드리겠습니다.</p>
+
+  <details>
+    <summary>브랜드를 비교할 때 딱 하나만 본다면 무엇인가요?</summary>
+    <div class="answer">
+      <span class="tag data">가장 중요한 지표</span>
+      <p><strong>정보공개서의 "평당 매출"입니다.</strong> 정확히는 매장 전용면적 3.3㎡당 연간 평균 매출액. 하나만 보실 수 있다면 이걸 보세요.</p>
+      <p>이유는 간단합니다. <strong>평당 매출이 곧 점주님 매장의 매출</strong>이기 때문입니다.</p>
+      <p>계산이 아주 쉽습니다. <strong>평당 매출 × 내가 계약할 평수 = 내 매장 매출.</strong> 50평으로 놓고 보면 이렇습니다.</p>
+      <div class="tablewrap"><table>
+        <tr><th></th><th>앤딩</th></tr>
+        <tr><td>평당 매출</td><td class="num"><strong>220만원</strong></td></tr>
+        <tr><td>50평 환산</td><td class="num"><strong>1억 1,000만원</strong></td></tr>
+      </table></div>
+      <p>비교하실 브랜드의 숫자는 <strong>직접 뽑아보세요.</strong> 저희가 정리해드린 표보다 정확합니다. 공정위에서 브랜드별로 조회하면 같은 항목이 나옵니다. 같은 50평이라도 월세·공사비·전기세는 똑같이 나가는데, <strong>위로 들어오는 돈만 달라집니다.</strong> 그 차이가 매달 순이익으로 그대로 갑니다.</p>
+      <p>평당 매출은 좌석 배치, 요금 정책, 회전율, 운영력이 전부 합쳐진 <strong>브랜드의 공간 효율 성적표</strong>입니다. 여기에는 포장이 안 들어갑니다. 인테리어 사진으로도, 지점 수로도 못 가립니다.</p>
+      <p>총 매출이 큰 브랜드에 속지 마세요. 100평짜리 매장이 월 2,000만원을 팔아도 평당 20만원입니다. 점주님이 40평을 계약하면 그 브랜드에서 받는 건 800만원입니다.</p>
+      <div class="callout"><b>어디서 보나요?</b> 공정거래위원회 가맹사업거래 홈페이지에서 브랜드명으로 정보공개서를 조회하면 됩니다. 가맹점 평균 매출액 옆에 <b>3.3㎡당 연간 평균 매출액</b>이 법으로 함께 기재하게 되어 있습니다. 지역별 수치도 나옵니다. 본사에 요청하실 필요도 없습니다.</div>
+      <p><strong>같이 보셔야 할 것:</strong> 평균은 잘되는 지점이 끌어올립니다. 상한과 하한을 같이 보세요. 그리고 신생 브랜드는 모수가 적어 숫자가 흔들립니다. 저희도 여기 해당합니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>어떤 자료를 보고 판단하면 될까요?</summary>
+    <div class="answer">
+      <span class="tag data">2026년 제도 변경 반영</span>
+      <p>저희 말 말고 <strong>서류로 확인하세요.</strong> 순서는 이렇습니다.</p>
+      <ul>
+        <li><strong>정보공개서를 받으세요.</strong> 가맹본부는 계약 체결 14일 전까지 공정거래위원회에 등록한 정보공개서를 제공할 법적 의무가 있습니다. 안 주면 그 자체가 신호입니다.</li>
+        <li><strong>3.3㎡당 평균 매출액부터 보세요.</strong> 위 질문에서 설명드린 항목입니다. 나머지는 그 다음입니다.</li>
+        <li><strong>가맹점 수 추이를 보세요.</strong> 신규 개점만 보지 말고 폐점·계약해지 숫자를 보세요.</li>
+        <li><strong>예상 매출은 반드시 서면으로 받으세요.</strong> 구두로 "얼마 법니다"는 근거가 없습니다.</li>
+        <li><strong>기존 점주에게 직접 물어보세요.</strong> 본사가 골라준 점주 말고, 지점 투어 가서 아무나 붙잡고요.</li>
+      </ul>
+      <p>참고로 제도가 바뀝니다. 2028년 1월부터 가맹본부는 <strong>가맹점·직영점 수를 분기마다 갱신</strong>해야 하고, <strong>평균 영업위약금과 장기 생존율</strong>까지 공개해야 합니다. 정보 비대칭이 줄어드는 방향입니다. 저희는 환영합니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>본사는 어떤 방식으로 수익을 내나요?</summary>
+    <div class="answer">
+      <p>실제로 많이 듣는 질문입니다. 걱정해주시는 뜻인 것도 압니다.</p>
+      <p>정직하게 말씀드리면 <strong>공사 마진과 매출의 4% 로열티</strong>입니다. 대신 마진 폭을 낮게 잡고 회전을 봅니다. 시공사에 벌크로 물량을 넘기기 때문에 단가를 낮출 수 있습니다.</p>
+      <p>4%라는 건 <strong>지점이 안 되면 본사도 못 번다</strong>는 뜻입니다. 점주님 매출이 저희 매출입니다. 그래서 오픈시키고 손 떼는 게 저희에게는 가장 손해입니다. 2026년 9월 기준 49호점까지 운영하면서 <strong>폐점은 0건</strong>입니다. 이 숫자를 지키는 게 저희 사업 모델 그 자체입니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>마케팅도 지원해주시나요? 광고비는 매달 얼마나 드나요?</summary>
+    <div class="answer">
+      <p>외주에 맡기면 <strong>월 300~400만원</strong> 쓰는 경우를 많이 봤습니다. 이 돈을 매달 쓰면 순이익이 남지 않습니다.</p>
+      <p>그래서 본사가 <strong>초기 세팅을 직접</strong> 해드립니다. 네이버 스마트플레이스, 블로그, 검색 노출 기반을 깔아드리고, 이후 관리 방법을 가이드합니다. 본사 업무량이 늘어나는 걸 감수하는 이유는 하나입니다. 점주님 통장에서 매달 300만원이 빠져나가지 않게 하려고요.</p>
+      <p><strong>다만 만능은 아닙니다.</strong> 최소한의 마케팅 공부는 직접 하셔야 합니다. 그래야 외부에 안 휘둘립니다. 공부에 필요한 자료는 드립니다. 결과를 100% 보장한다고는 말씀드리지 않겠습니다.</p>
+      <p>오픈 전, 오픈 1주 후, 6개월 후 시점에 컨설팅 플랜이 들어갑니다. 일반적인 스터디카페 창업에서는 이걸 점주가 혼자 합니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>오픈할 때 홍보는 어떻게 진행되나요?</summary>
+    <div class="answer">
+      <p>배너 설치, 인스타그램, 블로그, 당근마켓, 네이버 스마트플레이스, 전단지가 기본입니다.</p>
+      <p>추가로 사전 오픈 할인, 지인 추천 이벤트, 인스타 홍보 이벤트 같은 걸 얹습니다. 점주님이 직접 하실 수 있게 가이드하거나 초기 세팅을 도와드립니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>오픈 후에도 지원이 계속되나요?</summary>
+    <div class="answer">
+      <p>점주 카톡 채널로 필요한 자료를 계속 업데이트합니다. 이벤트 이미지, 안내문, 운영 팁 같은 것들입니다.</p>
+      <p>솔직히 말씀드리면 <strong>바빠서 활용 안 하시는 점주님도 계십니다.</strong> 본사가 강제로 매장 관리를 대신해드릴 수는 없습니다. 직영이 아니라 프랜차이즈니까요. 쓰실 수 있게 제공하는 것까지가 저희 역할입니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>그래서 왜 앤딩이어야 할까요?</summary>
+    <div class="answer">
+      <p>세 가지만 말씀드리겠습니다.</p>
+      <ul>
+        <li><strong>창업자 가족이 점주로 있습니다.</strong> 가족에게 권할 수 있느냐가 저희 기준입니다.</li>
+        <li><strong>점주를 해본 사람들이 만들었습니다.</strong> 청소 동선, 무단 입실, 화장실 클레임, 새벽 오류. 다 겪어보고 만든 구조입니다.</li>
+        <li><strong>EXIT까지 같이 봅니다.</strong> 보통 본사는 여기 관여하지 않습니다.</li>
+      </ul>
+      <p>저희보다 저렴하고 정직하게 하는 곳이 있으면 알려주세요. 반성하고 배우겠습니다. 다만 <strong>무작정 믿어달라고는 하지 않겠습니다.</strong> 의심이 남으면 세미나라도 와보세요. 돈 안 듭니다.</p>
+    </div>
+  </details>
+</section>
+
+<!-- ══ 6 ══ -->
+<section id="s7">
+  <div class="sechead"><span class="secnum">07</span><h2>퇴점하실 때는</h2></div>
+  <p class="secsub">시작하는 이야기만 하는 본사는 조심하셔야 합니다. 성패는 정리할 때 드러납니다.</p>
+
+  <details>
+    <summary>운영이 어려워지면 어떻게 정리할 수 있나요?</summary>
+    <div class="answer">
+      <p>가장 중요한 질문인데 가장 적게 물어보시는 질문입니다.</p>
+      <p>EXIT가 잘 되려면 <strong>애초에 상권과 원가 구조가 맞아야 합니다.</strong> 순이익이 나는 매장은 사려는 사람이 있습니다. 순이익이 안 나는 매장은 권리금은커녕 철거비를 물고 나옵니다. 그래서 저희는 보증금 3,000 / 월세 220 이하를 고집합니다. 이게 EXIT 가격을 결정하기 때문입니다.</p>
+      <p>양도양수가 필요한 상황이 오면 본사가 같이 붙습니다. <strong>일반적인 프랜차이즈는 이 부분에 전혀 관여하지 않습니다.</strong> 계약 전에 양도 조건과 위약금 조항을 꼭 확인하세요. 저희 계약서든 다른 곳 계약서든 마찬가지입니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>오픈 후 근처에 경쟁 매장이 생기면 어떻게 되나요?</summary>
+    <div class="answer">
+      <p>일반적인 브랜드가 가장 두려워하는 상황입니다. 저희는 <strong>구조로 막습니다.</strong></p>
+      <p>비슷한 월세에서 시간당 1,000원 구조를 맞추려면, 공사비를 저희 수준으로 낮추고 좌석 효율도 맞춰야 합니다. 후발주자가 프리미엄 인테리어로 들어오면 단가를 높게 잡을 수밖에 없고, 그러면 오래 앉는 고객은 넘어오지 않습니다.</p>
+      <p>이미 자리를 잡은 매장 옆에 들어오는 건 후발주자 입장에서 계산이 안 맞습니다. <strong>가격 구조 자체가 진입장벽</strong>이라는 뜻입니다.</p>
+    </div>
+  </details>
+
+  <details>
+    <summary>폐점 0건이라는 게 사실인가요?</summary>
+    <div class="answer">
+      <span class="tag data">2026년 9월 기준</span>
+      <p>2026년 9월 기준 <strong>운영 49호점, 폐점 0건</strong>입니다.</p>
+      <p>다만 이 숫자를 곧이곧대로 받아들이지는 마세요. 저희 브랜드는 업력이 길지 않고, <strong>모수가 49개</strong>입니다. 100개, 200개 브랜드의 폐점률과 같은 선에서 비교할 숫자는 아닙니다.</p>
+      <p>그래서 저희가 이 숫자를 쓰는 이유는 하나입니다. <strong>한 곳만 닫혀도 0이 깨집니다.</strong> 그만큼 입지 선정에서 무리하지 않았다는 뜻으로 봐주시면 됩니다. 검증은 정보공개서의 가맹점 수·계약해지 항목에서 직접 하실 수 있습니다.</p>
+    </div>
+  </details>
+</section>
+
+<div class="cta">
+  <p class="ctalead">스터디카페 창업 / 양도양수 / 마케팅 / 정부지원<br>모든 걸 다 알려드립니다.</p>
+  <p>설명회는 무료입니다. 온라인·오프라인 모두 진행하며 일정은 매번 달라집니다.<br>결정 의무는 전혀 없습니다.</p>
+  <div class="btnrow">
+    <button class="btn" id="openForm2" style="border:none;font-family:inherit;cursor:pointer">온라인 창업설명회 신청하기</button>
+    <a class="btn ghost" href="http://pf.kakao.com/_xiHlxan/chat" target="_blank" rel="noopener">카톡으로 먼저 물어보기</a>
+  </div>
+
+  <div class="inlinebox">
+    <p class="ibtitle">유선상담</p>
+    <div class="ibmsg" id="ibmsg"></div>
+    <div class="ibrow" id="ibrow">
+      <input id="g_name" type="text" placeholder="이름" autocomplete="name">
+      <input id="g_phone" type="tel" inputmode="numeric" placeholder="연락처" autocomplete="tel">
+      <button class="ibbtn" id="g_btn">상담 신청하기</button>
+    </div>
+    <label class="ibagree" id="ibagree"><input type="checkbox" id="g_agree"><span>상담 연락을 위한 개인정보(이름, 연락처) 수집·이용에 동의합니다. 보유기간은 상담 종료 후 1년입니다.</span></label>
+  </div>
+</div>
+
+</main>
+
+<footer><div class="wrap">
+  <p>본 페이지의 비용·매출·수익 관련 수치는 특정 지점의 사례 또는 평균값이며, 상권·평수·좌석수·계절에 따라 편차가 있습니다. 개별 점포의 수익을 보장하지 않습니다.</p>
+  <p>구체적인 예상매출액은 「가맹사업거래의 공정화에 관한 법률」에 따라 대상 입지 기준으로 산정하여 서면으로 제공합니다. 가맹계약 체결 전 정보공개서와 가맹계약서를 반드시 확인하시기 바랍니다.</p>
+  <p>(주)무인화연구소 · 사업자등록번호 511-81-27401 · 서울특별시 올림픽로32길 32, 305호(방이동) · 가맹문의 1811-9544 · biz@muinlab.io</p>
+</div></footer>
+
+
+<div class="stickybar">
+  <div class="stickyrow">
+    <div class="stickytxt"><b>질문 남은 게 있으신가요?</b>이름과 연락처만 남기시면 연락드립니다.</div>
+    <button class="stickybtn" id="openForm">상담 신청</button>
+  </div>
+</div>
+
+<div class="modal" id="modal">
+  <div class="sheet">
+    <h3>상담 신청</h3>
+    <p class="sub">설명회 일정은 매번 달라집니다. 이름과 연락처만 남겨주시면 가장 빠른 일정을 안내드립니다. 영업 전화는 돌리지 않습니다.</p>
+    <div class="msg" id="msg"></div>
+    <div id="formBody">
+      <div class="field"><label for="f_name">이름</label><input id="f_name" type="text" autocomplete="name" placeholder="홍길동"></div>
+      <div class="field"><label for="f_phone">연락처</label><input id="f_phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="010-0000-0000"></div>
+      <label class="agree"><input type="checkbox" id="f_agree"><span>상담 연락을 위한 개인정보(이름, 연락처) 수집·이용에 동의합니다. 보유기간은 상담 종료 후 1년이며, 동의를 거부하실 수 있으나 이 경우 상담 진행이 어렵습니다.</span></label>
+      <button class="submit" id="submitBtn">신청하기</button>
+    </div>
+    <button class="closebtn" id="closeForm">닫기</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ===== 설정: Apps Script 웹앱 URL을 여기에 붙여넣으세요 ===== */
+  var ENDPOINT = "https://script.google.com/macros/s/AKfycbzJFjVs_lVl0Qsvh2pOYYnfWii7Yo58QYrOCHrPitbmw59jRwaGm8L-ybC3z60YRt8S/exec";
+  /* ================================================ */
+
+  function send(payload){
+    if(!ENDPOINT) return Promise.reject(new Error("no endpoint"));
+    return fetch(ENDPOINT, {
+      method: "POST", mode: "no-cors", redirect: "follow",
+      headers: {"Content-Type": "text/plain;charset=utf-8"},
+      body: JSON.stringify(payload)
+    });
+  }
+
+  /* 조회수 집계 (세션당 1회) */
+  try{
+    if(!sessionStorage.getItem("anding_faq_viewed")){
+      sessionStorage.setItem("anding_faq_viewed","1");
+      send({type:"view", ref:document.referrer||"", ua:navigator.userAgent})["catch"](function(){});
+    }
+  }catch(e){}
+
+  var modal=document.getElementById("modal"),
+      msg=document.getElementById("msg"),
+      body=document.getElementById("formBody"),
+      btn=document.getElementById("submitBtn");
+
+  document.getElementById("openForm").addEventListener("click",function(){modal.classList.add("on")});
+  var of2=document.getElementById("openForm2");
+  if(of2) of2.addEventListener("click",function(){modal.classList.add("on")});
+
+  var gb=document.getElementById("g_btn");
+  if(gb){
+    gb.addEventListener("click",function(){
+      var im=document.getElementById("ibmsg");
+      var n=document.getElementById("g_name").value.trim();
+      var ph=document.getElementById("g_phone").value.trim();
+      var ag=document.getElementById("g_agree").checked;
+      function im_(t,k){ im.textContent=t; im.className="ibmsg "+k }
+      if(n.length<2) return im_("이름을 입력해주세요.","err");
+      if(ph.replace(/[^0-9]/g,"").length<10) return im_("연락처를 정확히 입력해주세요.","err");
+      if(!ag) return im_("개인정보 수집·이용에 동의해주세요.","err");
+      gb.disabled=true; gb.textContent="전송 중...";
+      send({type:"lead", name:n, phone:ph, ref:document.referrer||""})
+        .then(function(){
+          document.getElementById("ibrow").style.display="none";
+          document.getElementById("ibagree").style.display="none";
+          im_("신청이 접수됐습니다. 빠른 시일 내에 연락드리겠습니다.","ok");
+        })["catch"](function(){
+          gb.disabled=false; gb.textContent="상담 신청하기";
+          im_("전송에 실패했습니다. 카톡채널로 문의 부탁드립니다.","err");
+        });
+    });
+  }
+  document.getElementById("closeForm").addEventListener("click",function(){modal.classList.remove("on")});
+  modal.addEventListener("click",function(e){ if(e.target===modal) modal.classList.remove("on") });
+
+  function show(t,k){ msg.textContent=t; msg.className="msg "+k }
+
+  btn.addEventListener("click",function(){
+    var name=document.getElementById("f_name").value.trim();
+    var phone=document.getElementById("f_phone").value.trim();
+    var agree=document.getElementById("f_agree").checked;
+
+    if(name.length<2) return show("이름을 입력해주세요.","err");
+    if(phone.replace(/[^0-9]/g,"").length<10) return show("연락처를 정확히 입력해주세요.","err");
+    if(!agree) return show("개인정보 수집·이용에 동의해주세요.","err");
+
+    btn.disabled=true; btn.textContent="전송 중...";
+    send({type:"lead", name:name, phone:phone, ref:document.referrer||""})
+      .then(function(){
+        body.style.display="none";
+        show("신청이 접수됐습니다. 빠른 시일 내에 연락드리겠습니다.","ok");
+      })["catch"](function(){
+        btn.disabled=false; btn.textContent="신청하기";
+        show("전송에 실패했습니다. 카톡채널로 문의 부탁드립니다.","err");
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
